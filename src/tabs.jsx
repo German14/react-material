@@ -6,6 +6,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import DataGrid2 from "./components/DataGrid";
 import NestedModal from "./components/modal";
+import FormWithoutHookForm from "./components/form";
 
 import Photos from "./components/photos";
 export default function LabTabs() {
@@ -32,7 +33,8 @@ export default function LabTabs() {
           <DataGrid2 />
         </TabPanel>
         <TabPanel value="3">
-        <NestedModal/>
+          <NestedModal value="pasando texto al pulsar el boton en el tab" />
+          <FormWithoutHookForm value={['valor del tab','valor 2 del tab']} />
         </TabPanel>
       </TabContext>
     </Box>
