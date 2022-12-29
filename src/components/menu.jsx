@@ -1,110 +1,48 @@
 import React from "react";
-import {
-  Typography,
-  MenuItem,
-  Box,
-  Avatar,
-  Menu,
-  Divider,
-  IconButton,
-  Tooltip,
-  ListItemIcon,
-} from "@mui/material";
-
-import { Logout } from "@mui/icons-material";
-import { Settings } from "@mui/icons-material";
-import { PersonAdd } from "@mui/icons-material";
-
+import { Outlet, Link } from "react-router-dom";
+import { Typography, AppBar, CssBaseline, Toolbar, Box } from "@mui/material";
+import useStyles from "../styles";
 const NewMenu = () => {
-   const [anchorEl, setAnchorEl] = React.useState();
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-     return (
-        <React.Fragment>
-            <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-                <Typography sx={{ minWidth: 100 }}>Contact</Typography>
-                <Typography sx={{ minWidth: 100 }}>Profile</Typography>
-                <Tooltip title="Account settings">
-                    <IconButton
-                        onClick={handleClick}
-                        size="small"
-                        sx={{ ml: 2 }}
-                        aria-controls={open ? "account-menu" : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? "true" : undefined}
-                    >
-                        <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
-                    </IconButton>
-                </Tooltip>
-            </Box>
-            <Menu
-                anchorEl={anchorEl}
-                id="account-menu"
-                open={open}
-                onClose={handleClose}
-                onClick={handleClose}
-                PaperProps={{
-                    elevation: 0,
-                    sx: {
-                        overflow: "visible",
-                        filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                        mt: 1.5,
-                        "& .MuiAvatar-root": {
-                            width: 32,
-                            height: 32,
-                            ml: -0.5,
-                            mr: 1,
-                        },
-                        "&:before": {
-                            content: '""',
-                            display: "block",
-                            position: "absolute",
-                            top: 0,
-                            right: 14,
-                            width: 10,
-                            height: 10,
-                            bgcolor: "background.paper",
-                            transform: "translateY(-50%) rotate(45deg)",
-                            zIndex: 0,
-                        },
-                    },
+  const classes = useStyles();
+  return (
+    <React.Fragment>
+      <>
+        <CssBaseline>
+          <AppBar position="relative">
+            <Toolbar>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  textAlign: "center",
                 }}
-                transformOrigin={{ horizontal: "right", vertical: "top" }}
-                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-            >
-                <MenuItem>
-                    <Avatar /> Profile
-                </MenuItem>
-                <MenuItem>
-                    <Avatar /> My account
-                </MenuItem>
-                <Divider />
-                <MenuItem>
-                    <ListItemIcon>
-                        <PersonAdd fontSize="small" />
-                    </ListItemIcon>
-                    Add another account
-                </MenuItem>
-                <MenuItem>
-                    <ListItemIcon>
-                        <Settings fontSize="small" />
-                    </ListItemIcon>
-                    Settings
-                </MenuItem>
-                <MenuItem>
-                    <ListItemIcon>
-                        <Logout fontSize="small" />
-                    </ListItemIcon>
-                    Logout
-                </MenuItem>
-            </Menu>
-        </React.Fragment>
-
-     );
+              >
+                <Typography sx={{ minWidth: 100 }}>
+                  <Link to="/">Home</Link>
+                </Typography>
+                <Typography sx={{ minWidth: 100 }}>
+                  {" "}
+                  <Link to="/photos">Photos</Link>
+                </Typography>
+                <Typography sx={{ minWidth: 100 }}>
+                  {" "}
+                  <Link to="/forms">Forms</Link>
+                </Typography>
+              </Box>
+            </Toolbar>
+          </AppBar>
+          <Outlet />
+          <footer className={classes.footer}>
+            <Typography variant="h6" align="center" gutterBottom>
+              Footer
+            </Typography>
+            <Typography variant="subtitle1" align="center" color="primary">
+              Something here to give the footer a purpose!
+            </Typography>
+          </footer>
+        </CssBaseline>
+      </>
+    </React.Fragment>
+  );
 };
 export default NewMenu;

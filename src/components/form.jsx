@@ -2,8 +2,8 @@ import TextField from "@mui/material/TextField";
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
-import { getValue } from "@testing-library/user-event/dist/utils";
-
+import { CssBaseline } from "@mui/material";
+import useStyles from "../styles";
 export default function FormWithoutHookForm({ value }) {
   const [textValue, setTextValue] = useState("");
 
@@ -13,26 +13,30 @@ export default function FormWithoutHookForm({ value }) {
   };
   const handleReset = () => setTextValue("");
 
-   value.map((val) => {
-   console.log(val)
-  })
-
+  value.map((val) => {
+    console.log(val);
+  });
+  const classes = useStyles();
   return (
-    <Paper>
-      <h2>Form Demo</h2>
-      <TextField
-        onChange={onTextChange}
-        value={value[0]}
-        label={"Text Value"} //optional
-      />
-      <TextField
-        onChange={onTextChange}
-        value={value[1]}
-        label={"Text Value"} //optional
-      />
+    <>
+      <CssBaseline>
+        <Paper className={classes.paper}>
+          <h2>Form Demo</h2>
+          <TextField
+            onChange={onTextChange}
+            value={value[0]}
+            label={"Text Value"} //optional
+          />
+          <TextField
+            onChange={onTextChange}
+            value={value[1]}
+            label={"Text Value"} //optional
+          />
 
-      <Button onClick={handleSubmit}>Submit</Button>
-      <Button onClick={handleReset}>Reset</Button>
-    </Paper>
+          <Button onClick={handleSubmit}>Submit</Button>
+          <Button onClick={handleReset}>Reset</Button>
+        </Paper>
+      </CssBaseline>
+    </>
   );
 }

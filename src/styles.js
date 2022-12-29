@@ -6,6 +6,9 @@ const useStyles = makeStyles(() => ({
     padding: theme.spacing(10,12,12),
 
   },
+  paper: {
+    padding: theme.spacing(10,12,12),
+  },
   icon: {
     marginRight: theme.spacing(10,12,12),
   },

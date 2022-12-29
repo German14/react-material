@@ -11,9 +11,31 @@ import {
 
 import useStyles from "../styles";
 import Button from "@mui/material/Button";
+import Dialogs from "./Dialog";
+
+const style = {
+  top: "100%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  pt: 2,
+  px: 4,
+  pb: 3,
+  overflow: "scroll",
+};
 const Photos = () => {
+  const [open, setOpen] = React.useState(false);
   const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const classes = useStyles();
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <main>
       <div className={classes.container}>
@@ -39,14 +61,7 @@ const Photos = () => {
           <div className={classes.button}>
             <Grid container spacing={2} justifyContent="center">
               <Grid item>
-                <Button variant="contained" color="secondary">
-                  See my Photos
-                </Button>
-              </Grid>
-              <Grid item>
-                <Button variant="outlined" color="primary">
-                  Secondary action
-                </Button>
+                <Dialogs />
               </Grid>
             </Grid>
           </div>
