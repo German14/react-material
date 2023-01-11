@@ -11,7 +11,7 @@ import {
 
 import useStyles from "../styles";
 import Button from "@mui/material/Button";
-import Dialogs from "./Dialog";
+import Dialogs from "./dialog/Dialog";
 
 const style = {
   top: "100%",

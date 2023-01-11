@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 
 import Button from "@mui/material/Button";
-import useStyles from "../styles";
+import useStyles from "../../styles";
 const style = {
   top: "100%",
   left: "50%",

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import { CssBaseline } from "@mui/material";
-import useStyles from "../styles";
+import useStyles from "../../styles";
 export default function FormWithoutHookForm({ value }) {
   const [textValue, setTextValue] = useState("");
 

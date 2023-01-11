@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import { Typography, AppBar, CssBaseline, Toolbar, Box } from "@mui/material";
-import useStyles from "../styles";
+import useStyles from "../../styles";
 const NewMenu = () => {
   const classes = useStyles();
   return (

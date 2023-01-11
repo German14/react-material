@@ -1,8 +1,8 @@
 import React from "react";
-import  DataGrid2  from "./components/DataGrid";
-import  Photos  from "./components/photos";
-import NestedModal from "./components/form";
-import  NewMenu  from "./components/menu";
+import  DataGrid2  from "../components/table/DataGrid";
+import  Photos  from "../components/photos";
+import NestedModal from "../components/form/form";
+import  NewMenu  from "../components/menu/menu";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
